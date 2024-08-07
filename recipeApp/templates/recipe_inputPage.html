@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Recipe Generator</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f4f4f4;
+    }
+
+    .container {
+      width: 400px;
+      margin: 50px auto;
+      padding: 20px;
+      background-color: #fff;
+      border-radius: 5px;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    }
+
+    h1 {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    .form-group {
+      margin-bottom: 20px;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 5px;
+    }
+
+    input[type="text"],
+    input[type="email"],
+    textarea,
+    select {
+      width: 100%;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 3px;
+      box-sizing: border-box;
+    }
+
+    button {
+      background-color: #008CBA;
+      color: white;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 3px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #006699;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Recipe Generator</h1>
+
+    <form method="POST">
+      {% csrf_token %}
+      <div class="form-group">
+        <label for="ingredients">Ingredients:</label>
+        <input type="text" id="ingredients" name="ingredients" placeholder="Enter ingredients" required>
+      </div>
+
+      <div class="form-group">
+        <label for="meal-type">Meal Type:</label>
+        <select id="meal-type" name="meal-type" required>
+          <option value="Breakfast">Breakfast</option>
+          <option value="Lunch">Lunch</option>
+          <option value="Snacks">Snacks</option>
+          <option value="Dinner">Dinner</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label for="cuisine-preference">Cuisine Preference:</label>
+        <input type="text" id="cuisine-preference" name="cuisine-preference" placeholder="e.g., Italian, Mexican" required>
+      </div>
+
+      <div class="form-group">
+        <label for="cooking-time">Cooking Time:</label>
+        <input type="text" id="cooking-time" name="cooking-time" placeholder="e.g., Less than 30 minutes" required>
+      </div>
+
+      <div class="form-group">
+        <label for="complexity">Complexity:</label>
+        <select id="complexity" name="complexity" required>
+          <option value="Beginner">Beginner</option>
+          <option value="Intermediate">Intermediate</option>
+          <option value="Advanced">Advanced</option>
+        </select>
+      </div>
+      
+
+      <button type="submit">Generate Recipe</button>
+    </form>
+  </div>
+  
+
+  
+</body>
+</html>

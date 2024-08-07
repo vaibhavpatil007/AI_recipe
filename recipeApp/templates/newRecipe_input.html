@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+/* Existing styles */
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  background-color: #f1f1f1;
+}
+
+.container {
+  padding: 20px;
+  background-color: white;
+  background-image: url('/static/mummy_ji_kitchen.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  margin: 50px auto;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  width: 70%;
+}
+
+h1 {
+  text-align: center;
+  color: #ffffff;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  margin-left: -700px;
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+.form-control {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  width: 100%;
+  box-sizing: border-box;
+  background-color: rgba(255, 255, 255, 0.5);
+}
+
+.form-control:focus {
+  outline: none;
+  border-color: #4CAF50;
+}
+
+.btn {
+  background-color: #d8dbd3;
+  color: white;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  width: 100%;
+  font-size: 16px;
+  margin-top: 20px;
+}
+
+.btn:hover {
+  background-color: #a07845;
+}
+
+.image-container {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.image-container img {
+  width: 50%;
+  border-radius: 10px;
+}
+
+.image-caption {
+  font-size: 14px;
+  color: #666;
+  margin-top: 10px;
+}
+
+/* Preloader styles */
+#preloader {
+  display: none; /* Hidden by default */
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 9999;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+#preloader .cooking {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 150px;
+  height: 150px;
+  background: url('/static/cooking.png') no-repeat center;
+  background-size: contain;
+  animation: bubble 2s infinite ease-in-out;
+}
+
+@keyframes bubble {
+  0% {
+    transform: translate(-50%, -50%) scale(1);
+  }
+  50% {
+    transform: translate(-50%, -50%) scale(1.2);
+  }
+  100% {
+    transform: translate(-50%, -50%) scale(1);
+  }
+}
+</style>
+</head>
+<body>
+
+<div id="preloader">
+  <div class="cooking"></div>
+</div>
+
+<div class="container">
+  <h1>. </h1>
+  <form method="POST" onsubmit="showPreloader()">
+    {% csrf_token %}
+    <div class="form-group">
+      <label for="ingredients">Ingredients:</label>
+      <input type="text" class="form-control" id="ingredients" name="ingredients" placeholder="Enter ingredients">
+    </div>
+    <div class="form-group">
+      <label for="mealtype">Meal Type:</label>
+      <select class="form-control" id="mealtype" name="meal-type" required>
+        <option value="breakfast">Breakfast</option>
+        <option value="lunch">Lunch</option>
+        <option value="Snacks">Snacks</option>
+        <option value="dinner">Dinner</option>
+      </select>
+    </div>
+    <div class="form-group">
+      <label for="cuisine">Cuisine Preference:</label>
+      <input type="text" class="form-control" id="cuisine" name="cuisine-preference" placeholder="e.g., Italian, Mexican" required>
+    </div>
+    <div class="form-group">
+      <label for="cookingtime">Cooking Time:</label>
+      <input type="text" class="form-control" id="cookingtime" name="cooking-time" placeholder="e.g., Less than 30 minutes">
+    </div>
+    <div class="form-group">
+      <label for="complexity">Complexity:</label>
+      <select class="form-control" id="complexity" name="complexity" required>
+        <option value="beginner">Beginner</option>
+        <option value="intermediate">Intermediate</option>
+        <option value="advanced">Advanced</option>
+      </select>
+    </div>
+    <button type="submit" class="btn">Generate Recipe</button>
+  </form>
+
+  <div class="image-container">
+    <!-- <img src="https://images.unsplash.com/photo-1565299627270-4f161a1d7012?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1031&q=80" alt="Food image"> -->
+    <div class="image-caption">ThePhoto by PhotoAuthor is licensed under CCYYSA.</div>
+  </div>
+</div>
+
+<script>
+function showPreloader() {
+  document.getElementById("preloader").style.display = "block";
+}
+</script>
+
+</body>
+</html>
