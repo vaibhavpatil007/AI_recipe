@@ -20,6 +20,7 @@ This project is an AI-based Recipe Generator built with Django. Users can input 
 1. Clone the repository:
     ```bash
     git clone https://github.com/yourusername/ai-recipe-generator.git
+    https://github.com/vaibhavpatil007/AI_recipe.git
     cd ai-recipe-generator
     ```
 
