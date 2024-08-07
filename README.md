@@ -81,4 +81,5 @@ This project is an AI-based Recipe Generator built with Django. Users can input 
 
 Contributions are welcome! Please open an issue or submit a pull request for any improvements or bug fixes.
 
+https://drive.google.com/file/d/19xytVEb0WIE-37e-SobF8yJHySaO7-AB/view?usp=sharing
 
